@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fotografen Portfolio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f6f6f6;
+      color: #333;
+    }
+    header {
+      background: #232323;
+      color: #fff;
+      padding: 32px 0;
+      text-align: center;
+    }
+    .about, .preise, .portfolio {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 32px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.09);
+    }
+    .about img {
+      float: right;
+      max-width: 180px;
+      border-radius: 50%;
+      margin-left: 24px;
+      margin-bottom: 12px;
+    }
+    h1 {
+      margin-bottom: 0;
+    }
+    h2 {
+      margin-top: 0;
+      color: #232323;
+    }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 12px;
+    }
+    .portfolio-grid img {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.10);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+    }
+    th, td {
+      text-align: left;
+      padding: 8px;
+      border-bottom: 1px solid #eaeaea;
+    }
+    @media (max-width: 600px) {
+      .about, .preise, .portfolio {
+        padding: 16px;
+      }
+      .about img {
+        float: none;
+        display: block;
+        margin: 0 auto 18px auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Max Mustermann – Fotograf</h1>
+    <p>Kreative Fotografie für jeden Anlass</p>
+  </header>
+  
+  <section class="about">
+    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Fotograf Max Mustermann">
+    <h2>Über mich</h2>
+    <p>Hallo! Mein Name ist Max Mustermann.  
+    Ich bin leidenschaftlicher Fotograf aus Berlin, spezialisiert auf Event-, Porträt- und Naturfotografie. Seit mehr als 8 Jahren halte ich besondere Momente authentisch und individuell fest.</p>
+  </section>
+  
+  <section class="portfolio">
+    <h2>Portfolio</h2>
+    <div class="portfolio-grid">
+      <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?fit=crop&w=400&q=80" alt="Beispielbild 1">
+      <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?fit=crop&w=400&q=80" alt="Beispielbild 2">
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?fit=crop&w=400&q=80" alt="Beispielbild 3">
+      <img src="https://images.unsplash.com/photo-1454023492550-5696f8ff10e1?fit=crop&w=400&q=80" alt="Beispielbild 4">
+    </div>
+  </section>
+  
+  <section class="preise">
+    <h2>Preise</h2>
+    <table>
+      <tr>
+        <th>Leistung</th>
+        <th>Preis</th>
+      </tr>
+      <tr>
+        <td>Porträtshooting (1h, 10 bearbeitete Fotos)</td>
+        <td>99€</td>
+      </tr>
+      <tr>
+        <td>Eventbegleitung (2h, 30 Fotos)</td>
+        <td>199€</td>
+      </tr>
+      <tr>
+        <td>Businessfotos (inkl. Retusche, 5 Fotos)</td>
+        <td>129€</td>
+      </tr>
+      <tr>
+        <td>Landschaftsfotografie (auf Anfrage)</td>
+        <td>ab 79€</td>
+      </tr>
+    </table>
+    <p>Für individuelle Wünsche schreibe mir gerne eine E-Mail: <a href="mailto:max@example.com">max@example.com</a></p>
+  </section>
+</body>
+</html>
+```
