@@ -1,103 +1,338 @@
-Story
-A (modular, highly tweakable) responsive one-page template designed by HTML5 UP and released for free under the Creative Commons.
-	•	Get Started
-￼
-Magna etiam feugiat
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id ante sed ex pharetra lacinia sit amet vel massa. Donec facilisis laoreet nulla eu bibendum. Donec ut ex risus. Fusce lorem lectus, pharetra pretium massa et, hendrerit vestibulum odio lorem ipsum dolor sit amet.
-	•	Learn More
-￼
-Tempus adipiscing
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id ante sed ex pharetra lacinia sit amet vel massa. Donec facilisis laoreet nulla eu bibendum. Donec ut ex risus. Fusce lorem lectus, pharetra pretium massa et, hendrerit vestibulum odio lorem ipsum dolor sit amet.
-	•	Learn More
-￼
-Pharetra etiam nulla
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id ante sed ex pharetra lacinia sit amet vel massa. Donec facilisis laoreet nulla eu bibendum. Donec ut ex risus. Fusce lorem lectus, pharetra pretium massa et, hendrerit vestibulum odio lorem ipsum dolor sit amet.
-	•	Learn More
-￼
-Massa sed condimentum
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id ante sed ex pharetra lacinia sit amet vel massa. Donec facilisis laoreet nulla eu bibendum. Donec ut ex risus. Fusce lorem lectus, pharetra pretium massa et, hendrerit vestibulum odio lorem ipsum.
-￼
-Ipsum Dolor
-Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.
-	•	Details
-￼
-Feugiat Lorem
-Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.
-	•	Details
-￼
-Magna Amet
-Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.
-	•	Details
-￼
-Sed Tempus
-Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.
-	•	Details
-￼
-Ultrices Magna
-Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.
-	•	Details
-￼
-Sed Tempus
-Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.
-	•	Details
-￼
-Ipsum Lorem
-Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.
-	•	Details
-￼
-Magna Risus
-Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.
-	•	Details
-￼
-Tempus Dolor
-Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.
-	•	Details
-￼
-Sed Etiam
-Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.
-	•	Details
-￼
-Magna Lorem
-Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.
-	•	Details
-￼
-Ipsum Dolor
-Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.
-	•	Details
-Ipsum sed consequat
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id ante sed ex pharetra lacinia sit amet vel massa. Donec facilisis laoreet nulla eu bibendum. Donec ut ex risus. Fusce lorem lectus, pharetra pretium massa et, hendrerit vestibulum odio lorem ipsum.
-Lorem
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.
-Ipsum
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.
-Dolor
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.
-Amet
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.
-Magna
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.
-Tempus
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.
-Aliquam
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.
-Elit
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.
-Morbi
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.
-Turpis
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.
-Ultrices
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.
-Risus
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.
-Get in touch
-Name
-Email
-Message
-	•	
-	•	Twitter
-	•	Facebook
-	•	Instagram
-	•	LinkedIn
-	•	Email
-© Untitled. Design: HTML5 UP.
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Fotograf & Videograf Portfolio</title>
+<style>
+  /* Reset & Grundlayout */
+  * {
+    box-sizing: border-box;
+    margin: 0; padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  body {
+    background: #fff;
+    color: #222;
+    line-height: 1.6;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  /* Navbar */
+  nav {
+    position: fixed;
+    width: 100%;
+    background: #111;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 0.2);
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 3rem;
+  }
+  nav ul li {
+    font-weight: 600;
+    font-size: 1.1rem;
+    position: relative;
+    cursor: pointer;
+    padding-bottom: 3px;
+  }
+  nav ul li:hover,
+  nav ul li:focus {
+    color: #1db954;
+  }
+  nav ul li::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #1db954;
+    transition: width 0.3s ease;
+  }
+  nav ul li:hover::after,
+  nav ul li:focus::after {
+    width: 100%;
+  }
+
+  /* Content Wrapper */
+  main {
+    max-width: 960px;
+    margin: 120px auto 60px;
+    padding: 0 1rem;
+  }
+
+  /* About Section */
+  #about {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+  #about h1 {
+    font-size: 2.8rem;
+    margin-bottom: 0.3rem;
+  }
+  #about p {
+    max-width: 600px;
+    margin: auto;
+    font-size: 1.1rem;
+    color: #555;
+  }
+
+  /* Services Section */
+  #services {
+    margin-bottom: 80px;
+  }
+  #services h2 {
+    font-size: 2.4rem;
+    margin-bottom: 1rem;
+    border-bottom: 3px solid #1db954;
+    display: inline-block;
+    padding-bottom: 0.3rem;
+  }
+  #services ul {
+    list-style: disc inside;
+    color: #333;
+    font-size: 1.1rem;
+  }
+  #services ul li {
+    margin-bottom: 0.7rem;
+    transition: color 0.3s ease;
+  }
+  #services ul li:hover {
+    color: #1db954;
+    cursor: default;
+  }
+
+  /* Partners Section */
+  #partners {
+    margin-bottom: 80px;
+  }
+  #partners h2 {
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
+    border-bottom: 3px solid #1db954;
+    display: inline-block;
+    padding-bottom: 0.3rem;
+  }
+  .partner-logos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+  }
+  .partner-logos img {
+    max-height: 60px;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+  }
+  .partner-logos img:hover {
+    filter: none;
+    opacity: 1;
+    transform: scale(1.1);
+  }
+
+  /* Gallery Section */
+  #gallery {
+    margin-bottom: 80px;
+  }
+  #gallery h2 {
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
+    border-bottom: 3px solid #1db954;
+    display: inline-block;
+    padding-bottom: 0.3rem;
+  }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+  .gallery-item:hover img {
+    transform: scale(1.05);
+  }
+
+  /* Project Section */
+  #projects {
+    margin-bottom: 80px;
+  }
+  #projects h2 {
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
+    border-bottom: 3px solid #1db954;
+    display: inline-block;
+    padding-bottom: 0.3rem;
+  }
+  .projects-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .project-card {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgb(0 0 0 / 0.1);
+    cursor: pointer;
+  }
+  .project-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+  .project-card:hover img {
+    transform: scale(1.1);
+  }
+  .project-text {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    background: rgba(29, 185, 84, 0.85);
+    color: white;
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    max-width: 80%;
+    pointer-events: none;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 1rem;
+    color: #999;
+    font-size: 0.9rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    nav ul {
+      gap: 1.5rem;
+      font-size: 1rem;
+    }
+    #about h1 {
+      font-size: 2rem;
+    }
+    #services h2, #partners h2, #gallery h2, #projects h2 {
+      font-size: 1.8rem;
+    }
+    .projects-grid {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style>
+</head>
+<body>
+<nav>
+  <ul>
+    <li><a href="#about" tabindex="0">About</a></li>
+    <li><a href="#services" tabindex="0">Services</a></li>
+    <li><a href="#partners" tabindex="0">Partners</a></li>
+    <li><a href="#gallery" tabindex="0">Gallery</a></li>
+    <li><a href="#projects" tabindex="0">Projects</a></li>
+  </ul>
+</nav>
+
+<main>
+  <section id="about">
+    <h1>Hallo, ich bin [Dein Name]</h1>
+    <p>Professioneller Fotograf & Videograf mit Leidenschaft für kreative Projekte, Events & persönliche Geschichten.</p>
+  </section>
+
+  <section id="services">
+    <h2>Meine Services</h2>
+    <ul>
+      <li>Eventfotografie & Videografie</li>
+      <li>Hochzeitsfotografie & -videos</li>
+      <li>Werbe- & Produktaufnahmen</li>
+      <li>After-Movie & Highlight-Videos</li>
+      <li>Bild- und Video-Editing</li>
+    </ul>
+  </section>
+
+  <section id="partners">
+    <h2>Partner & Kunden</h2>
+    <div class="partner-logos">
+      <img src="https://via.placeholder.com/120x60?text=Partner+1" alt="Partner 1 Logo" />
+      <img src="https://via.placeholder.com/120x60?text=Partner+2" alt="Partner 2 Logo" />
+      <img src="https://via.placeholder.com/120x60?text=Partner+3" alt="Partner 3 Logo" />
+      <img src="https://via.placeholder.com/120x60?text=Partner+4" alt="Partner 4 Logo" />
+    </div>
+  </section>
+
+  <section id="gallery">
+    <h2>Galerie</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="https://via.placeholder.com/600x400?text=Bild+1" alt="Galerie Bild 1" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://via.placeholder.com/600x400?text=Bild+2" alt="Galerie Bild 2" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://via.placeholder.com/600x400?text=Bild+3" alt="Galerie Bild 3" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://via.placeholder.com/600x400?text=Bild+4" alt="Galerie Bild 4" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://via.placeholder.com/600x400?text=Bild+5" alt="Galerie Bild 5" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://via.placeholder.com/600x400?text=Bild+6" alt="Galerie Bild 6" />
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Meine Projekte</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <img src="https://via.placeholder.com/300x300?text=Projekt+1" alt="Projekt 1" />
+        <div class="project-text">Projekt 1: Event Highlights</div>
+      </div>
+      <div class="project-card">
+        <img src="https://via.placeholder.com/300x300?text=Projekt+2" alt="Projekt 2" />
+        <div class="project-text">Projekt 2: Hochzeitsreportage</div>
+      </div>
+      <div class="project-card">
+        <img src="https://via.placeholder.com/300x300?text=Projekt+3" alt="Projekt 3" />
+        <div class="project-text">Projekt 3: Produktfotografie</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 Fotograf & Videograf Portfolio
+</footer>
+</body>
+</html>
