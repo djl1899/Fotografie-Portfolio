@@ -1,338 +1,346 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Fotograf & Videograf Portfolio</title>
-<style>
-  /* Reset & Grundlayout */
-  * {
-    box-sizing: border-box;
-    margin: 0; padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-  body {
-    background: #fff;
-    color: #222;
-    line-height: 1.6;
-  }
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David - Fotograf & Videograf</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  /* Navbar */
-  nav {
-    position: fixed;
-    width: 100%;
-    background: #111;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    padding: 1rem 0;
-    z-index: 1000;
-    box-shadow: 0 2px 8px rgb(0 0 0 / 0.2);
-  }
-  nav ul {
-    list-style: none;
-    display: flex;
-    gap: 3rem;
-  }
-  nav ul li {
-    font-weight: 600;
-    font-size: 1.1rem;
-    position: relative;
-    cursor: pointer;
-    padding-bottom: 3px;
-  }
-  nav ul li:hover,
-  nav ul li:focus {
-    color: #1db954;
-  }
-  nav ul li::after {
-    content: "";
-    position: absolute;
-    left: 0; bottom: 0;
-    width: 0;
-    height: 2px;
-    background-color: #1db954;
-    transition: width 0.3s ease;
-  }
-  nav ul li:hover::after,
-  nav ul li:focus::after {
-    width: 100%;
-  }
+        body {
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;
+        }
 
-  /* Content Wrapper */
-  main {
-    max-width: 960px;
-    margin: 120px auto 60px;
-    padding: 0 1rem;
-  }
+        /* Video Background */
+        .video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
 
-  /* About Section */
-  #about {
-    text-align: center;
-    margin-bottom: 80px;
-  }
-  #about h1 {
-    font-size: 2.8rem;
-    margin-bottom: 0.3rem;
-  }
-  #about p {
-    max-width: 600px;
-    margin: auto;
-    font-size: 1.1rem;
-    color: #555;
-  }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: -1;
+        }
 
-  /* Services Section */
-  #services {
-    margin-bottom: 80px;
-  }
-  #services h2 {
-    font-size: 2.4rem;
-    margin-bottom: 1rem;
-    border-bottom: 3px solid #1db954;
-    display: inline-block;
-    padding-bottom: 0.3rem;
-  }
-  #services ul {
-    list-style: disc inside;
-    color: #333;
-    font-size: 1.1rem;
-  }
-  #services ul li {
-    margin-bottom: 0.7rem;
-    transition: color 0.3s ease;
-  }
-  #services ul li:hover {
-    color: #1db954;
-    cursor: default;
-  }
+        /* Header mit Name und Nav */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+        }
 
-  /* Partners Section */
-  #partners {
-    margin-bottom: 80px;
-  }
-  #partners h2 {
-    font-size: 2.4rem;
-    margin-bottom: 2rem;
-    border-bottom: 3px solid #1db954;
-    display: inline-block;
-    padding-bottom: 0.3rem;
-  }
-  .partner-logos {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: center;
-  }
-  .partner-logos img {
-    max-height: 60px;
-    filter: grayscale(100%);
-    opacity: 0.7;
-    transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
-    cursor: pointer;
-  }
-  .partner-logos img:hover {
-    filter: none;
-    opacity: 1;
-    transform: scale(1.1);
-  }
+        .logo {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: white;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+        }
 
-  /* Gallery Section */
-  #gallery {
-    margin-bottom: 80px;
-  }
-  #gallery h2 {
-    font-size: 2.4rem;
-    margin-bottom: 2rem;
-    border-bottom: 3px solid #1db954;
-    display: inline-block;
-    padding-bottom: 0.3rem;
-  }
-  .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-  }
-  .gallery-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 8px;
-    cursor: pointer;
-  }
-  .gallery-item img {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.5s ease;
-  }
-  .gallery-item:hover img {
-    transform: scale(1.05);
-  }
+        .nav {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
 
-  /* Project Section */
-  #projects {
-    margin-bottom: 80px;
-  }
-  #projects h2 {
-    font-size: 2.4rem;
-    margin-bottom: 2rem;
-    border-bottom: 3px solid #1db954;
-    display: inline-block;
-    padding-bottom: 0.3rem;
-  }
-  .projects-grid {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .project-card {
-    position: relative;
-    width: 300px;
-    height: 300px;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 8px 20px rgb(0 0 0 / 0.1);
-    cursor: pointer;
-  }
-  .project-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.4s ease;
-  }
-  .project-card:hover img {
-    transform: scale(1.1);
-  }
-  .project-text {
-    position: absolute;
-    bottom: 12px;
-    left: 12px;
-    background: rgba(29, 185, 84, 0.85);
-    color: white;
-    padding: 12px 16px;
-    border-radius: 6px;
-    font-size: 1.1rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-    max-width: 80%;
-    pointer-events: none;
-  }
+        .nav li {
+            position: relative;
+            cursor: pointer;
+        }
 
-  /* Footer */
-  footer {
-    text-align: center;
-    padding: 1rem;
-    color: #999;
-    font-size: 0.9rem;
-  }
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: 300;
+            transition: color 0.3s;
+        }
 
-  /* Responsive */
-  @media (max-width: 600px) {
-    nav ul {
-      gap: 1.5rem;
-      font-size: 1rem;
-    }
-    #about h1 {
-      font-size: 2rem;
-    }
-    #services h2, #partners h2, #gallery h2, #projects h2 {
-      font-size: 1.8rem;
-    }
-    .projects-grid {
-      flex-direction: column;
-      align-items: center;
-    }
-  }
-</style>
+        .nav a:hover {
+            color: #ccc;
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(0, 0, 0, 0.9);
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 10px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .nav li:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 12px 20px;
+            font-size: 1em;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .dropdown a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown a:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* Kontakt Button */
+        .contact-btn {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        /* Main Content */
+        main {
+            min-height: 100vh;
+            padding-top: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        /* Einzelne Seiten Struktur */
+        .page-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 40px;
+            color: white;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .portfolio-item {
+            position: relative;
+            height: 300px;
+            background: #333;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .portfolio-item:hover {
+            transform: scale(1.05);
+        }
+
+        .portfolio-item video, .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background: rgba(255,255,255,0.1);
+            padding: 60px;
+            border-radius: 20px;
+            margin: 60px 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .testimonials h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+        }
+
+        .testimonial {
+            font-style: italic;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .nav {
+                gap: 20px;
+                flex-wrap: wrap;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5em;
+            }
+            
+            .page-content {
+                padding: 100px 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-<nav>
-  <ul>
-    <li><a href="#about" tabindex="0">About</a></li>
-    <li><a href="#services" tabindex="0">Services</a></li>
-    <li><a href="#partners" tabindex="0">Partners</a></li>
-    <li><a href="#gallery" tabindex="0">Gallery</a></li>
-    <li><a href="#projects" tabindex="0">Projects</a></li>
-  </ul>
-</nav>
+    <!-- Video Background (Platzhalter - ersetze mit deinem Video) -->
+    <video class="video-bg" autoplay muted loop>
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-cold-looking-video-with-space-38729-large.mp4" type="video/mp4">
+        Dein Browser unterstützt kein Video.
+    </video>
+    
+    <div class="overlay"></div>
 
-<main>
-  <section id="about">
-    <h1>Hallo, ich bin [Dein Name]</h1>
-    <p>Professioneller Fotograf & Videograf mit Leidenschaft für kreative Projekte, Events & persönliche Geschichten.</p>
-  </section>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">D A V I D</div>
+        <nav>
+            <ul class="nav">
+                <li>
+                    <a>Filmproduktion</a>
+                    <ul class="dropdown">
+                        <li><a href="#imagefilm">Imagefilm</a></li>
+                        <li><a href="#eventfilm">Eventfilm</a></li>
+                        <li><a href="#werbefilm">Werbefilm</a></li>
+                        <li><a href="#produktvideo">Produktvideo</a></li>
+                        <li><a href="#dokumentation">Dokumentation</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a>Fotografie</a>
+                    <ul class="dropdown">
+                        <li><a href="#portrait">Portrait</a></li>
+                        <li><a href="#produkt">Produkt</a></li>
+                    </ul>
+                </li>
+                <li><a href="#referenzen">Referenzen</a></li>
+                <li>
+                    <a>Über mich</a>
+                    <ul class="dropdown">
+                        <li><a href="#team">Team</a></li>
+                        <li><a href="#karriere">Karriere</a></li>
+                    </ul>
+                </li>
+                <li><a href="#blog">Blog</a></li>
+            </ul>
+        </nav>
+        <button class="contact-btn">Kontakt</button>
+    </header>
 
-  <section id="services">
-    <h2>Meine Services</h2>
-    <ul>
-      <li>Eventfotografie & Videografie</li>
-      <li>Hochzeitsfotografie & -videos</li>
-      <li>Werbe- & Produktaufnahmen</li>
-      <li>After-Movie & Highlight-Videos</li>
-      <li>Bild- und Video-Editing</li>
-    </ul>
-  </section>
+    <!-- Hauptseite -->
+    <main>
+        <div class="hero-content">
+            <h1>Willkommen in meiner Welt der Bilder</h1>
+            <p>Entdecke Filmproduktion, Fotografie und mehr</p>
+        </div>
+    </main>
 
-  <section id="partners">
-    <h2>Partner & Kunden</h2>
-    <div class="partner-logos">
-      <img src="https://via.placeholder.com/120x60?text=Partner+1" alt="Partner 1 Logo" />
-      <img src="https://via.placeholder.com/120x60?text=Partner+2" alt="Partner 2 Logo" />
-      <img src="https://via.placeholder.com/120x60?text=Partner+3" alt="Partner 3 Logo" />
-      <img src="https://via.placeholder.com/120x60?text=Partner+4" alt="Partner 4 Logo" />
-    </div>
-  </section>
+    <!-- Beispiel für Unterseite: Imagefilm (alle anderen folgen demselben Muster) -->
+    <section id="imagefilm" class="page-content" style="display: none;">
+        <h1>Imagefilm</h1>
+        <p>Professionelle Imagefilme, die deine Marke zum Leben erwecken. Emotionale Storytelling mit höchster Produktionsqualität.</p>
+        
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <video autoplay muted loop>
+                    <source src="https://assets.mixkit.co/videos/preview/mixkit-portrait-of-a-woman-in-a-pool-39887-large.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800" alt="Imagefilm Projekt 1">
+            </div>
+            <div class="portfolio-item">
+                <video autoplay muted loop>
+                    <source src="https://assets.mixkit.co/videos/preview/mixkit-man-holding-a-drink-in-a-bar-32656-large.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800" alt="Imagefilm Projekt 2">
+            </div>
+        </div>
 
-  <section id="gallery">
-    <h2>Galerie</h2>
-    <div class="gallery-grid">
-      <div class="gallery-item">
-        <img src="https://via.placeholder.com/600x400?text=Bild+1" alt="Galerie Bild 1" />
-      </div>
-      <div class="gallery-item">
-        <img src="https://via.placeholder.com/600x400?text=Bild+2" alt="Galerie Bild 2" />
-      </div>
-      <div class="gallery-item">
-        <img src="https://via.placeholder.com/600x400?text=Bild+3" alt="Galerie Bild 3" />
-      </div>
-      <div class="gallery-item">
-        <img src="https://via.placeholder.com/600x400?text=Bild+4" alt="Galerie Bild 4" />
-      </div>
-      <div class="gallery-item">
-        <img src="https://via.placeholder.com/600x400?text=Bild+5" alt="Galerie Bild 5" />
-      </div>
-      <div class="gallery-item">
-        <img src="https://via.placeholder.com/600x400?text=Bild+6" alt="Galerie Bild 6" />
-      </div>
-    </div>
-  </section>
+        <div class="testimonials">
+            <h2>Das sagen unsere Kunden:</h2>
+            <div class="testimonial">"David hat unseren Imagefilm auf das nächste Level gebracht. Absolute Empfehlung!" - Max M.</div>
+            <div class="testimonial">"Professionell, kreativ und termingerecht. Perfekte Zusammenarbeit." - Lisa K.</div>
+            <div class="testimonial">"Die Qualität übertrifft unsere Erwartungen bei weitem." - Unternehmen XYZ</div>
+        </div>
+    </section>
 
-  <section id="projects">
-    <h2>Meine Projekte</h2>
-    <div class="projects-grid">
-      <div class="project-card">
-        <img src="https://via.placeholder.com/300x300?text=Projekt+1" alt="Projekt 1" />
-        <div class="project-text">Projekt 1: Event Highlights</div>
-      </div>
-      <div class="project-card">
-        <img src="https://via.placeholder.com/300x300?text=Projekt+2" alt="Projekt 2" />
-        <div class="project-text">Projekt 2: Hochzeitsreportage</div>
-      </div>
-      <div class="project-card">
-        <img src="https://via.placeholder.com/300x300?text=Projekt+3" alt="Projekt 3" />
-        <div class="project-text">Projekt 3: Produktfotografie</div>
-      </div>
-    </div>
-  </section>
-</main>
+    <script>
+        // Smooth Scroll für Navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.style.display = 'block';
+                    target.scrollIntoView({ behavior: 'smooth' });
+                    document.querySelector('main').style.display = 'none';
+                }
+            });
+        });
 
-<footer>
-  &copy; 2025 Fotograf & Videograf Portfolio
-</footer>
+        // Zurück zur Hauptseite Button (optional)
+        document.querySelector('.contact-btn').addEventListener('click', () => {
+            document.querySelector('main').style.display = 'flex';
+            document.querySelectorAll('.page-content').forEach(sec => {
+                sec.style.display = 'none';
+            });
+        });
+    </script>
 </body>
 </html>
