@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>David - Fotograf & Videograf</title>
+    <title>David - Portfolio</title>
     <style>
         * {
             margin: 0;
@@ -12,334 +12,52 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
-            overflow-x: hidden;
+            overflow: hidden;
+            background: #000;
         }
 
-        /* Video Background */
-        .video-bg {
+        /* Fullscreen YouTube Video */
+        .youtube-container {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            z-index: -2;
+            z-index: 1;
         }
 
+        .youtube-video {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+        }
+
+        /* Dunkler Overlay für bessere Lesbarkeit (optional) */
         .overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.4);
-            z-index: -1;
-        }
-
-        /* Header mit Name und Nav */
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 20px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.1);
-        }
-        
-        .logo {
-            font-size: 2.5em;
-            font-weight: bold;
-            color: white;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-        }
-
-        .nav {
-            display: flex;
-            gap: 40px;
-            list-style: none;
-        }
-
-        .nav li {
-            position: relative;
-            cursor: pointer;
-        }
-
-        .nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.1em;
-            font-weight: 300;
-            transition: color 0.3s;
-        }
-
-        .nav a:hover {
-            color: #ccc;
-        }
-
-        /* Dropdown Menu */
-        .dropdown {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: rgba(0, 0, 0, 0.9);
-            min-width: 200px;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            border-radius: 10px;
-            padding: 10px 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-
-        .nav li:hover .dropdown {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .dropdown a {
-            display: block;
-            padding: 12px 20px;
-            font-size: 1em;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .dropdown a:last-child {
-            border-bottom: none;
-        }
-
-        .dropdown a:hover {
-            background: rgba(255,255,255,0.1);
-        }
-
-        /* Kontakt Button */
-        .contact-btn {
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            color: white;
-            padding: 12px 30px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1em;
-            cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        .contact-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-        }
-
-        /* Main Content */
-        main {
-            min-height: 100vh;
-            padding-top: 100px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-        }
-
-        .hero-content h1 {
-            font-size: 4em;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        /* Einzelne Seiten Struktur */
-        .page-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 100px 40px;
-            color: white;
-        }
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 30px;
-            margin: 60px 0;
-        }
-
-        .portfolio-item {
-            position: relative;
-            height: 300px;
-            background: #333;
-            border-radius: 20px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-
-        .portfolio-item:hover {
-            transform: scale(1.05);
-        }
-
-        .portfolio-item video, .portfolio-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Testimonials Section */
-        .testimonials {
-            background: rgba(255,255,255,0.1);
-            padding: 60px;
-            border-radius: 20px;
-            margin: 60px 0;
-            backdrop-filter: blur(10px);
-        }
-
-        .testimonials h2 {
-            text-align: center;
-            margin-bottom: 40px;
-            font-size: 2.5em;
-        }
-
-        .testimonial {
-            font-style: italic;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .header {
-                padding: 15px 20px;
-                flex-direction: column;
-                gap: 20px;
-            }
-            
-            .nav {
-                gap: 20px;
-                flex-wrap: wrap;
-            }
-            
-            .hero-content h1 {
-                font-size: 2.5em;
-            }
-            
-            .page-content {
-                padding: 100px 20px;
-            }
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 2;
         }
     </style>
 </head>
 <body>
-    <!-- Video Background (Platzhalter - ersetze mit deinem Video) -->
-    <video class="video-bg" autoplay muted loop>
-        <source src="https://assets.mixkit.co/videos/preview/mixkit-cold-looking-video-with-space-38729-large.mp4" type="video/mp4">
-        Dein Browser unterstützt kein Video.
-    </video>
-    
+    <!-- YouTube Video (UNLISTED) - hier deine URL einfügen -->
+    <div class="youtube-container">
+        <!-- Ersetze DEINE_YOUTUBE_ID durch die ID deines ungelisteten Videos -->
+        <iframe 
+            class="youtube-video"
+            src="https://www.youtube.com/embed/DEINE_YOUTUBE_ID?autoplay=1&mute=1&loop=1&playlist=DEINE_YOUTUBE_ID&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&playsinline=1"
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+        </iframe>
+    </div>
+
+    <!-- Optional: Dunkler Overlay -->
     <div class="overlay"></div>
-
-    <!-- Header -->
-    <header class="header">
-        <div class="logo">D A V I D</div>
-        <nav>
-            <ul class="nav">
-                <li>
-                    <a>Filmproduktion</a>
-                    <ul class="dropdown">
-                        <li><a href="#imagefilm">Imagefilm</a></li>
-                        <li><a href="#eventfilm">Eventfilm</a></li>
-                        <li><a href="#werbefilm">Werbefilm</a></li>
-                        <li><a href="#produktvideo">Produktvideo</a></li>
-                        <li><a href="#dokumentation">Dokumentation</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a>Fotografie</a>
-                    <ul class="dropdown">
-                        <li><a href="#portrait">Portrait</a></li>
-                        <li><a href="#produkt">Produkt</a></li>
-                    </ul>
-                </li>
-                <li><a href="#referenzen">Referenzen</a></li>
-                <li>
-                    <a>Über mich</a>
-                    <ul class="dropdown">
-                        <li><a href="#team">Team</a></li>
-                        <li><a href="#karriere">Karriere</a></li>
-                    </ul>
-                </li>
-                <li><a href="#blog">Blog</a></li>
-            </ul>
-        </nav>
-        <button class="contact-btn">Kontakt</button>
-    </header>
-
-    <!-- Hauptseite -->
-    <main>
-        <div class="hero-content">
-            <h1>Willkommen in meiner Welt der Bilder</h1>
-            <p>Entdecke Filmproduktion, Fotografie und mehr</p>
-        </div>
-    </main>
-
-    <!-- Beispiel für Unterseite: Imagefilm (alle anderen folgen demselben Muster) -->
-    <section id="imagefilm" class="page-content" style="display: none;">
-        <h1>Imagefilm</h1>
-        <p>Professionelle Imagefilme, die deine Marke zum Leben erwecken. Emotionale Storytelling mit höchster Produktionsqualität.</p>
-        
-        <div class="portfolio-grid">
-            <div class="portfolio-item">
-                <video autoplay muted loop>
-                    <source src="https://assets.mixkit.co/videos/preview/mixkit-portrait-of-a-woman-in-a-pool-39887-large.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="portfolio-item">
-                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800" alt="Imagefilm Projekt 1">
-            </div>
-            <div class="portfolio-item">
-                <video autoplay muted loop>
-                    <source src="https://assets.mixkit.co/videos/preview/mixkit-man-holding-a-drink-in-a-bar-32656-large.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="portfolio-item">
-                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800" alt="Imagefilm Projekt 2">
-            </div>
-        </div>
-
-        <div class="testimonials">
-            <h2>Das sagen unsere Kunden:</h2>
-            <div class="testimonial">"David hat unseren Imagefilm auf das nächste Level gebracht. Absolute Empfehlung!" - Max M.</div>
-            <div class="testimonial">"Professionell, kreativ und termingerecht. Perfekte Zusammenarbeit." - Lisa K.</div>
-            <div class="testimonial">"Die Qualität übertrifft unsere Erwartungen bei weitem." - Unternehmen XYZ</div>
-        </div>
-    </section>
-
-    <script>
-        // Smooth Scroll für Navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.style.display = 'block';
-                    target.scrollIntoView({ behavior: 'smooth' });
-                    document.querySelector('main').style.display = 'none';
-                }
-            });
-        });
-
-        // Zurück zur Hauptseite Button (optional)
-        document.querySelector('.contact-btn').addEventListener('click', () => {
-            document.querySelector('main').style.display = 'flex';
-            document.querySelectorAll('.page-content').forEach(sec => {
-                sec.style.display = 'none';
-            });
-        });
-    </script>
 </body>
 </html>
