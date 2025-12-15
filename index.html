@@ -8,7 +8,6 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: Arial, Helvetica, sans-serif; background: #fff; color: #111; }
 
-    /* Header */
     header {
       position: fixed;
       top: 20px;
@@ -16,24 +15,19 @@
       z-index: 1000;
     }
 
-    .menu-btn {
-      width: 30px;
-      cursor: pointer;
-    }
-
+    .menu-btn { width: 30px; cursor: pointer; }
     .menu-btn span {
       display: block;
       height: 3px;
       background: #111;
       margin: 6px 0;
-      transition: 0.3s;
     }
 
     nav {
       position: fixed;
       top: 0;
       left: -100%;
-      width: 300px;
+      width: 260px;
       height: 100vh;
       background: #111;
       color: #fff;
@@ -42,32 +36,31 @@
     }
 
     nav.active { left: 0; }
-
     nav ul { list-style: none; }
+    nav li { margin-bottom: 25px; font-size: 1.4rem; cursor: pointer; }
 
-    nav li {
-      margin-bottom: 25px;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-
-    nav li:hover { opacity: 0.7; }
-
-    /* Sections */
     section {
       display: flex;
       min-height: 100vh;
+      align-items: center;
+      justify-content: center;
     }
 
     .half {
       width: 50%;
+      padding: 60px;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 60px;
     }
 
-    .half img {
+    .image-box {
+      width: 70%;
+      max-width: 380px;
+      aspect-ratio: 3 / 4;
+    }
+
+    .image-box img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -81,36 +74,35 @@
 
     .reverse { flex-direction: row-reverse; }
 
-    /* Partner */
     .partners {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 40px;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 30px;
       width: 100%;
     }
 
     .partner {
-      padding: 40px;
+      padding: 30px;
       border: 1px solid #ddd;
       text-align: center;
+      font-size: 1.1rem;
     }
 
-    /* Login */
     .login-box {
       width: 100%;
-      max-width: 400px;
+      max-width: 360px;
     }
 
     .login-box input {
       width: 100%;
-      padding: 15px;
-      margin-bottom: 15px;
+      padding: 14px;
+      margin-bottom: 14px;
       font-size: 1rem;
     }
 
     .login-box button {
       width: 100%;
-      padding: 15px;
+      padding: 14px;
       background: #111;
       color: #fff;
       border: none;
@@ -124,15 +116,22 @@
       font-size: 0.9rem;
       color: #777;
     }
+
+    /* Mobile */
+    @media (max-width: 900px) {
+      section { flex-direction: column; min-height: auto; }
+      .half { width: 100%; padding: 40px 20px; }
+      .reverse { flex-direction: column; }
+      .image-box { width: 80%; max-width: 320px; }
+      nav { width: 100%; }
+    }
   </style>
 </head>
 <body>
 
 <header>
   <div class="menu-btn" onclick="toggleMenu()">
-    <span></span>
-    <span></span>
-    <span></span>
+    <span></span><span></span><span></span>
   </div>
 </header>
 
@@ -145,42 +144,39 @@
   </ul>
 </nav>
 
-<!-- Portfolio -->
 <div id="portfolio">
   <section>
-    <div class="half"><img src="DSC01741.jpg" /></div>
+    <div class="half"><div class="image-box"><img src="https://picsum.photos/600/800?1"></div></div>
     <div class="half"><div class="text">Projektbeschreibung Bild 1</div></div>
   </section>
   <section class="reverse">
-    <div class="half"><img src="https://picsum.photos/1000/1000?2" /></div>
+    <div class="half"><div class="image-box"><img src="https://picsum.photos/600/800?2"></div></div>
     <div class="half"><div class="text">Projektbeschreibung Bild 2</div></div>
   </section>
   <section>
-    <div class="half"><img src="https://picsum.photos/1000/1000?3" /></div>
+    <div class="half"><div class="image-box"><img src="https://picsum.photos/600/800?3"></div></div>
     <div class="half"><div class="text">Projektbeschreibung Bild 3</div></div>
   </section>
   <section class="reverse">
-    <div class="half"><img src="https://picsum.photos/1000/1000?4" /></div>
+    <div class="half"><div class="image-box"><img src="https://picsum.photos/600/800?4"></div></div>
     <div class="half"><div class="text">Projektbeschreibung Bild 4</div></div>
   </section>
   <section>
-    <div class="half"><img src="https://picsum.photos/1000/1000?5" /></div>
+    <div class="half"><div class="image-box"><img src="https://picsum.photos/600/800?5"></div></div>
     <div class="half"><div class="text">Projektbeschreibung Bild 5</div></div>
   </section>
   <section class="reverse">
-    <div class="half"><img src="https://picsum.photos/1000/1000?6" /></div>
+    <div class="half"><div class="image-box"><img src="https://picsum.photos/600/800?6"></div></div>
     <div class="half"><div class="text">Projektbeschreibung Bild 6</div></div>
   </section>
 </div>
 
-<!-- About -->
 <section id="about">
-  <div class="half"><div class="text">Ich bin Fotograf/Kreativer und arbeite minimalistisch, modern und fokussiert auf starke Bilder.</div></div>
-  <div class="half"><img src="https://picsum.photos/1000/1000?7" /></div>
+  <div class="half"><div class="text">Ich bin Fotograf/Kreativer mit Fokus auf minimalistische, hochwertige Hochkant-Bilder.</div></div>
+  <div class="half"><div class="image-box"><img src="https://picsum.photos/600/800?7"></div></div>
 </section>
 
-<!-- Partners -->
-<section id="partners" class="reverse">
+<section id="partners">
   <div class="half">
     <div class="partners">
       <div class="partner">Partner 1</div>
@@ -189,28 +185,24 @@
       <div class="partner">Partner 4</div>
     </div>
   </div>
-  <div class="half"><img src="https://picsum.photos/1000/1000?8" /></div>
+  <div class="half"><div class="text">Auswahl an Marken & Kunden, mit denen ich bereits zusammenarbeiten durfte.</div></div>
 </section>
 
-<!-- Login -->
-<section id="login">
+<section id="login" class="reverse">
   <div class="half"><div class="login-box">
-    <input type="text" placeholder="E-Mail" />
-    <input type="password" placeholder="Passwort" />
+    <input type="text" placeholder="E-Mail">
+    <input type="password" placeholder="Passwort">
     <button>Login</button>
   </div></div>
-  <div class="half"><img src="https://picsum.photos/1000/1000?9" /></div>
+  <div class="half"><div class="text">Kundenbereich zum Ansehen und Herunterladen deiner Bilder.</div></div>
 </section>
 
-<footer>
-  © 2025 Dein Name
-</footer>
+<footer>© 2025 Dein Name</footer>
 
 <script>
   function toggleMenu() {
     document.getElementById('menu').classList.toggle('active');
   }
-
   function scrollToSection(id) {
     document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
     toggleMenu();
